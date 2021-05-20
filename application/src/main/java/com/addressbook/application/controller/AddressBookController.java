@@ -48,21 +48,21 @@ public class AddressBookController {
     	ContactData contactData = null;
     	contactData = addressBookService.createEmployeePayRollData(contactDTO);
     	ResponseDTO responseDTO = new ResponseDTO("Get Call For Id Successful" , contactData);
-        return new ResponseEntity<>("Added the contact Data : "+contactDTO , HttpStatus.OK);
+        return new ResponseEntity<>("Added the contact Data : "+responseDTO , HttpStatus.OK);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<String> updateContact(@RequestBody ContactDTO contactDTO){
+    @PutMapping("/update/{contactId}")
+    public ResponseEntity<String> updateContact(@PathVariable("contactId") int contactId ,@RequestBody ContactDTO contactDTO){
     	ContactData contactData = null;
-    	contactData = addressBookService.updateEmployeePayRollData(contactDTO);
+    	contactData = addressBookService.updateEmployeePayRollData(contactId,contactDTO);
     	ResponseDTO responseDTO = new ResponseDTO("Get Call For Id Successful" , contactData);
-        return new ResponseEntity<>("Update the contact's Pay Roll data : "+contactDTO , HttpStatus.OK);
+        return new ResponseEntity<>("Update the contact's Pay Roll data : "+responseDTO , HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{contactId}")
     public ResponseEntity<String> deleteContact(@PathVariable("empId") int contactId){
     	addressBookService.deleteEmployeePayRollData(contactId);
     	ResponseDTO responseDTO = new ResponseDTO("Deleted successfully ","Deleted id"+contactId);
-        return new ResponseEntity<>("Deleted contact's Data for id : "+contactId , HttpStatus.OK);
+        return new ResponseEntity<>("Deleted contact's Data for id : "+responseDTO , HttpStatus.OK);
     }
 }

@@ -12,8 +12,8 @@ public interface IAddressBookService {
 	ContactData getEmployeePayRollDataById(int contactId);
 	
 	ContactData createEmployeePayRollData(ContactDTO contactDTO);
-	
-	ContactData updateEmployeePayRollData(ContactDTO contactDTO);
-	
+
 	void deleteEmployeePayRollData(int contactid);
+
+	ContactData updateEmployeePayRollData(int contactId, ContactDTO contactDTO);
 }
