@@ -2,6 +2,9 @@ package com.addressbook.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.employee.employeeapplication.EmployeeApplication;
 
 import lombok.extern.slf4j.Slf4j;
 import sun.util.logging.resources.logging;
@@ -11,8 +14,9 @@ import sun.util.logging.resources.logging;
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		log.info("Addrress Book Application Started");
+		org.springframework.context.ApplicationContext context = SpringApplication.run(Application.class, args);
+	       
+		log.info("AddressBook Application Started in {} Environment" , ((ConfigurableApplicationContext) context).getEnvironment().getProperty("environment"));
 	}
 
 }
