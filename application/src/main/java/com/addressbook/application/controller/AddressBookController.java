@@ -2,6 +2,8 @@ package com.addressbook.application.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.addressbook.application.dto.ContactDTO;
 import com.addressbook.application.dto.ResponseDTO;
 import com.addressbook.application.model.ContactData;
-import com.addressbook.application.service.AddressBookService;
 import com.addressbook.application.service.IAddressBookService;
 
 @RestController
@@ -44,7 +45,7 @@ public class AddressBookController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> addContact(@RequestBody ContactDTO contactDTO){
+    public ResponseEntity<String> addContact(@Valid @RequestBody ContactDTO contactDTO){
     	ContactData contactData = null;
     	contactData = addressBookService.createEmployeePayRollData(contactDTO);
     	ResponseDTO responseDTO = new ResponseDTO("Get Call For Id Successful" , contactData);
@@ -52,7 +53,7 @@ public class AddressBookController {
     }
 
     @PutMapping("/update/{contactId}")
-    public ResponseEntity<String> updateContact(@PathVariable("contactId") int contactId ,@RequestBody ContactDTO contactDTO){
+    public ResponseEntity<String> updateContact(@PathVariable("contactId") int contactId ,@Valid @RequestBody ContactDTO contactDTO){
     	ContactData contactData = null;
     	contactData = addressBookService.updateEmployeePayRollData(contactId,contactDTO);
     	ResponseDTO responseDTO = new ResponseDTO("Get Call For Id Successful" , contactData);
