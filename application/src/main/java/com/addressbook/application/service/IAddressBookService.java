@@ -9,11 +9,11 @@ public interface IAddressBookService {
 
 	List<ContactData> getAddressBookData();
 	
-	ContactData getEmployeePayRollDataById(int contactId);
+	ContactData getContactById(int contactId);
 	
-	ContactData createEmployeePayRollData(ContactDTO contactDTO);
+	ContactData createContact(ContactDTO contactDTO);
 
-	void deleteEmployeePayRollData(int contactid);
+	void deleteContact(int contactid);
 
-	ContactData updateEmployeePayRollData(int contactId, ContactDTO contactDTO);
+	ContactData updateContactData(int contactId, ContactDTO contactDTO);
 }
