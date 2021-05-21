@@ -17,6 +17,9 @@ public class Application {
 		org.springframework.context.ApplicationContext context = SpringApplication.run(Application.class, args);
 	       
 		log.info("AddressBook Application Started in {} Environment" , ((ConfigurableApplicationContext) context).getEnvironment().getProperty("environment"));
+		
+		log.info("Eploye Payroll App Started in {} Environment" , ((ConfigurableApplicationContext) context).getEnvironment().getProperty("spring.datasource.username"));
+
 	}
 
 }
